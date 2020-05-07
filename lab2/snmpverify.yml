@@ -7,7 +7,7 @@
   tasks:
     - name: RUN SHOW COMMAND
       cli_command:
-        command: "{{show_interfaces}}"
+        command: show run | inc snmp
       register: command_output
 
     - name: PRINT TO TERMINAL WINDOW
