@@ -5,11 +5,11 @@
   gather_facts: no
 
   tasks:
-    - name: RUN SHOW COMMAND
+    - name: Show run include SNMP
       cli_command:
         command: show run | inc snmp
       register: command_output
 
-    #- name: PRINT TO TERMINAL WINDOW
-     # debug:
-      #  msg: "{{command_output.stdout}}"
+    - name: PRINT TO TERMINAL WINDOW
+      debug:
+        msg: "{{command_output.stdout}}"
