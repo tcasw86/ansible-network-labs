@@ -10,6 +10,6 @@
         command: show run | inc snmp
       register: command_output
 
-    - name: PRINT TO TERMINAL WINDOW
+    - name: Print Output
       debug:
         msg: "{{command_output.stdout}}"
