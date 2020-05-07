@@ -5,6 +5,11 @@
   gather_facts: no
 
   tasks:
-    - name: SNMP Verification
+    - name: RUN SHOW COMMAND
       cli_command:
-        command: show run | inc snmp
+        command: "{{show_interfaces}}"
+      register: command_output
+
+    - name: PRINT TO TERMINAL WINDOW
+      debug:
+        msg: "{{command_output.stdout}}"
