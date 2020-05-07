@@ -1,13 +1,10 @@
 ---
-- name: GATHER SNMP FROM ROUTERS
+- name: Verify SNMP
   hosts: routers
   connection: network_cli
   gather_facts: no
 
   tasks:
-    - name: GATHER ROUTER FACTS
-      ios_facts:
-
-    - name: DISPLAY VERSION
-      debug:
-        msg: "The SNMP String is: {{ ansible_net_version }}"
+    - name: SNMP Verification
+      cli_command:
+        command: show run | inc snmp
